@@ -27,12 +27,10 @@ final class Version20220413190121 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('DROP SEQUENCE "user_id_seq"');
         $this->addSql('CREATE SEQUENCE "storeUser_id_seq" START WITH 1 MINVALUE 1 INCREMENT BY 1');
         $this->addSql('CREATE TABLE "storeUser" (id NUMBER(10) NOT NULL, email VARCHAR2(180) NOT NULL, roles CLOB NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE UNIQUE INDEX UNIQ_611EBA44E7927C74 ON "storeUser" (email)');
         $this->addSql('COMMENT ON COLUMN "storeUser".roles IS \'(DC2Type:json)\'');
-        $this->addSql('DROP TABLE "user"');
     }
 
     public function down(Schema $schema): void
