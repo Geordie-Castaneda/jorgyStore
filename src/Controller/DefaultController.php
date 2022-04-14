@@ -2,9 +2,9 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class DefaultController extends AbstractController
 {
@@ -13,6 +13,14 @@ class DefaultController extends AbstractController
      */
     public function indexAction(): Response
     {
-        return $this->render('base.html.twig');
+        return $this->render('homepage.html.twig');
+    }
+
+    /**
+     * @Route("/products/{id}", name="app_product_show")
+     */
+    public function showProductAction(): Response
+    {
+        return $this->render('homepage.html.twig');
     }
 }

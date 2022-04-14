@@ -7,22 +7,22 @@
         <div class="row">
             <div class="login-form bg-light mt-4 p-4">
                 <form method="post" class="row g-3">
-                    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+                    <h1 class="mt-5">Inicia sesion y compra todos los muebles que quieras</h1>
                     {% if error %}
                         <div class="alert alert-danger">{{ error.messageKey }}</div>
                     {% endif %}
                     <div class="col-12">
-                        <label for="inputEmail">Email</label>
+                        <label for="inputEmail">Correo</label>
                         <input type="email" name="email" id="inputEmail" class="form-control" required autofocus>
                     </div>
                     <div class="col-12">
-                        <label for="inputPassword">Password</label>
+                        <label for="inputPassword">Contraseña</label>
                         <input type="password" name="password" id="inputPassword" class="form-control" required>
                     </div>
 
                     <div class="form-check mb-3">
                         <label>
-                            <input type="checkbox" name="_remember_me" class="form-check-input"> Remember me
+                            <input type="checkbox" name="_remember_me" class="form-check-input"> Recuerdame como a la Coco
                         </label>
                     </div>
 
@@ -32,8 +32,7 @@
 
                     <div class="col-12">
                         <button class="btn btn-lg btn-primary float-end" type="submit">
-                            Sign in
-
+                            Ingresame ya
                         </button>
                     </div>
                 </form>
