@@ -1,0 +1,114 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block body %}
+    <div class="product-page-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="prod-page-title">
+                        <h2>{{ product.name }}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 col-sm-4">
+                    <div class="left-profile-box-m prod-page">
+                        <div class="pro-img">
+                            <img src="{{ asset(product.url) }}" alt="#" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7 col-sm-8">
+                    <div class="md-prod-page">
+                        <div class="md-prod-page-in">
+                            <div class="page-preview">
+                                <div class="preview">
+                                    <div class="preview-pic tab-content">
+                                        <div class="tab-pane active" id="pic-1"><img src="{{ asset('images/lag-60.png') }}" alt="#" /></div>
+                                        <div class="tab-pane" id="pic-2"><img src="{{ asset('images/lag-61.png') }}" alt="#" /></div>
+                                        <div class="tab-pane" id="pic-3"><img src="{{ asset('images/lag-60.png') }}" alt="#" /></div>
+                                        <div class="tab-pane" id="pic-4"><img src="{{ asset('images/lag-61.png') }}" alt="#" /></div>
+                                    </div>
+                                    <ul class="preview-thumbnail nav nav-tabs">
+                                        <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="{{ asset('images/lag-60.png') }}" alt="#" /></a></li>
+                                        <li><a data-target="#pic-2" data-toggle="tab"><img src="{{ asset('images/lag-61.png') }}" alt="#" /></a></li>
+                                        <li><a data-target="#pic-3" data-toggle="tab"><img src="{{ asset('images/lag-60.png') }}" alt="#" /></a></li>
+                                        <li><a data-target="#pic-4" data-toggle="tab"><img src="{{ asset('images/lag-61.png') }}" alt="#" /></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="btn-dit-list clearfix">
+                                <div class="right-dit-p">
+                                    <div class="like-list">
+                                        <ul>
+                                            <li>
+                                                <div class="im-b"><img class="" src="{{ asset('images/list-img-01.png') }}" alt=""></div>
+                                            </li>
+                                            <li>
+                                                <div class="im-b"><img src="{{ asset('images/list-img-02.png') }}" alt=""></div>
+                                            </li>
+                                            <li>
+                                                <div class="im-b"><img src="{{ asset('images/list-img-03.png') }}" alt=""></div>
+                                            </li>
+                                            <li>
+                                                <div class="im-b"><img src="{{ asset('images/list-img-04.png') }}" alt=""></div>
+                                            </li>
+                                            <li>
+                                                <div class="im-b"><img src="{{ asset('images/list-img-05.png') }}" alt=""></div>
+                                            </li>
+                                            <li>
+                                                <div class="im-b"><img src="{{ asset('images/list-img-06.png') }}" alt=""></div>
+                                            </li>
+                                            <li>
+                                                <div class="im-b"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="description-box">
+                            <div class="dex-a">
+                                <h4>Description</h4>
+                                <p>
+                                    {{ product.description }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="similar-box">
+                        <h2>Productos Similares</h2>
+                        <div class="row cat-pd">
+                        {% for productData in products %}
+                            <div class="col-md-6">
+                                <div class="small-box-c">
+                                    <div class="small-img-b">
+                                        <img class="img-responsive" src="{{ asset(productData.url) }}" alt="#" />
+                                    </div>
+                                    <div class="dit-t clearfix">
+                                        <div class="left-ti">
+                                            <h4>{{ productData.name }}</h4>
+                                        </div>
+                                        <a href="{{ path('app_product_show', {'id': productData.id}) }}" tabindex="0">Q{{ productData.price }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                    <div class="price-box-right">
+                        <h4>Price</h4>
+                        <h3>Q{{ product.price }} <span>Quetzales</span></h3>
+                        <a href="{% if app.user %}#{% else %}{{ path('app_login') }}{% endif %}" class="btn btn-lg btn-primary float-end" type="submit">
+                            Comprar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
